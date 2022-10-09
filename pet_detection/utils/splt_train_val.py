@@ -20,10 +20,11 @@ def copyfiles(fil, folder):
     shutil.copyfile(src, dest)
 
     # copy annotations
-    src = os.path.join(label_dir, f"{filename}.txt")
-    dest = os.path.join(save_root_path, folder, "labels", f"{filename}.txt")
-    if os.path.exists(src):
-        shutil.copyfile(src, dest)
+    if label_dir is not None:
+        src = os.path.join(label_dir, f"{filename}.txt")
+        dest = os.path.join(save_root_path, folder, "labels", f"{filename}.txt")
+        if os.path.exists(src):
+            shutil.copyfile(src, dest)
 
 
 lower_limit = 0
